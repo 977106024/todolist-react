@@ -13,7 +13,6 @@ export default class TodoItem extends Component {
     )
   }
   toggle(e){
-    console.log(this.props.todo)
     this.props.onToggle(e,this.props.todo)
   }
   delete(e){
