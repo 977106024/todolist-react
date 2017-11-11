@@ -2,8 +2,9 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://myname.github.io/todolist-react/build",
+  "homepage": "http://myname.github.io/todolist-react/build",
   "dependencies": {
+    "normalize.css": "^7.0.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-scripts": "1.0.17"
