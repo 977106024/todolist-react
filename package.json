@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://myname.github.io/todolist-react/build",
   "dependencies": {
+    "leancloud-storage": "^3.3.1",
     "normalize.css": "^7.0.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
