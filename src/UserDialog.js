@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import './UserDialog.css'
-import {signUp,signIn} from './leanCloud'
+import {signUp,signIn,sendPasswordResetEmail} from './leanCloud'
 
 export default class UserDialog extends Component{
   constructor(props){
@@ -68,7 +68,7 @@ export default class UserDialog extends Component{
       <form className="signUp" onSubmit={this.signUp.bind(this)}>
         <div className="row">
           <label>邮箱</label>
-          <input type="text" value={this.state.formData.username}
+          <input type="text" value={this.state.formData.email}
           onChange={this.changeFormData.bind(this,'email')}/>
         </div>
         <div className="row">
@@ -154,7 +154,8 @@ export default class UserDialog extends Component{
     stateCopy.selectedTab = 'forgotPassword'
     this.setState(stateCopy)
   }
-  resetPassword(){
-
+  resetPassword(e){
+    e.preventDefault()
+    sendPasswordResetEmail(this.state.formData.email)
   }
 }

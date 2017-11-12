@@ -29,6 +29,13 @@ export function signUp(email,username,password,successFn,errorFn){
   return undefined
 }
 
+export function sendPasswordResetEmail(email,successFn,errorFn){
+  AV.User.requestPasswordReset(email).then(function(success){
+    successFn.call()
+  },function(error){
+    console.log(error)
+  })
+}
 export function signIn(username,password,successFn,errorFn){
   AV.User.logIn(username,password).then(function(loginedUser){
     let user = getUserFromAVUser(loginedUser)
