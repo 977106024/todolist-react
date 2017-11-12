@@ -5,7 +5,8 @@ import './reset.css'
 import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import UserDialog from './UserDialog'
-import {getCurrentUser,signOut} from './leanCloud'
+import {getCurrentUser,signOut,TodoModel} from './leanCloud'
+
 
 class App extends Component {
   constructor(props){
@@ -14,14 +15,18 @@ class App extends Component {
     this.state = {
       user:getCurrentUser() || {},
       newTodo: '',
-      todoList: [
-        {id:1,title:'第一个待办'},
-        {id:2,title:'第二个待办'}
-      ]
+      todoList: []
+    }
+    let user = getCurrentUser()
+    if(user){
+      TodoModel.getByUser(user,(todos)=>{
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.todoList = todos
+        this.setState(stateCopy)
+      })
     }
   }
   render() {
-
     let todos = this.state.todoList
     .filter((item)=>!item.deleted)
     .map((item,index)=>{
@@ -65,8 +70,14 @@ class App extends Component {
     this.setState(this.state)
   }
   toggle(e,todo){
+    let oldStatus = todo.status
     todo.status = todo.status === 'completed' ? '' : 'completed'
-    this.setState(this.state)
+    TodoModel.update(todo,()=>{
+      this.setState(this.state)
+    },(error)=>{
+      todo.status = oldStatus
+      this.setState(this.state)
+    })
   }
   changeTitle(event){
     this.setState({
@@ -75,28 +86,28 @@ class App extends Component {
     })
   }
   addTodo(event){
-    this.state.todoList.push({
-      id:idMaker(),
+    let newTodo = {
       title:event.target.value,
-      status:null,
+      status:'',
       deleted:false
-    })
-    this.setState({
-      newTodo:'',
-      todoList: this.state.todoList
+    }
+    TodoModel.create(newTodo,(id)=>{
+      newTodo.id = id
+      this.state.todoList.push(newTodo)
+      this.setState({
+        newTodo: '',
+        todoList: this.state.todoList
+      })
+    },(error)=>{
+      console.log(error)
     })
   }
   delete(e,todo){
-    todo.deleted = true
-    this.setState(this.state)
+    TodoModel.destroy(todo.id,()=>{
+      todo.deleted = true
+      this.setState(this.state)
+    })
   }
 }
 
 export default App;
-
-let id = 0;
-
-function idMaker(){
-  id += 1
-  return id
-}
