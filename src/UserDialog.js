@@ -17,7 +17,7 @@ export default class UserDialog extends Component{
     }
   }
   signUp(e){
-    e.preventDefault
+    e.preventDefault()
     let {email,username,password} = this.state.formData
     let success = (user)=>{
       this.props.onSignUp.call(null,user)
@@ -35,7 +35,7 @@ export default class UserDialog extends Component{
     signUp(email,username,password,success,error)
   }
   signIn(e){
-    e.preventDefault
+    e.preventDefault()
     let {username,password} = this.state.formData
     let success = (user)=>{
       this.props.onSignIn.call(null,user)
