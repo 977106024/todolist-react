@@ -53,7 +53,6 @@ export default class UserDialog extends Component{
     signIn(username,password,success,error)
   }
   changeFormData(key,e){
-    console.log(e)
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.formData[key] = e.target.value
     this.setState(stateCopy)
