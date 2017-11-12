@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://myname.github.io/todolist-react/build",
+  "homepage": "https://myname.github.io/todolist-react/build",
   "dependencies": {
     "leancloud-storage": "^3.3.1",
     "normalize.css": "^7.0.0",
@@ -14,6 +14,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
   }
 }
