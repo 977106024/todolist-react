@@ -32,7 +32,16 @@ export default class UserDialog extends Component{
           break
       }
     }
-    signUp(email,username,password,success,error)
+    let emailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+    if(!emailReg.test(email)){
+      alert('请检查邮箱格式')
+    }else if(username.length < 3){
+      alert('用户名不得少于3位')
+    }else if(password.length < 6){
+      alert('密码不能少于6位')
+    }else{
+      signUp(email,username,password,success,error)
+    }
   }
   signIn(e){
     e.preventDefault()
