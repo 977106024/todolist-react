@@ -13,7 +13,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      user:getCurrentUser() || {},
+      user: getCurrentUser() || {},
       newTodo: '',
       todoList: []
     }
@@ -67,7 +67,7 @@ class App extends Component {
   onSignUpOrSignIn(user){
     let stateCopy = JSON.parse(JSON.stringify(this.state))
     stateCopy.user = user
-    this.setState(this.state)
+    this.setState(stateCopy)
   }
   toggle(e,todo){
     let oldStatus = todo.status

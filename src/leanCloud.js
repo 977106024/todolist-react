@@ -79,7 +79,6 @@ export function signUp(email,username,password,successFn,errorFn){
   },function(error){
     errorFn.call(null,error)
   })
-
   return undefined
 }
 
