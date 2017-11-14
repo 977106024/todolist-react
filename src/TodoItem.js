@@ -7,10 +7,10 @@ export default class TodoItem extends Component {
     return (
       <div className="TodoItem">
         <div className="icon-wrap">
-          <svg className={"icon icon-cheboxnull" + " " + (this.props.todo.status === "completed" ? "active" : null)} aria-hidden="true">
+          <svg className={"icon icon-cheboxnull" + (this.props.todo.status === "completed" ? " active" : "")} aria-hidden="true">
             <use xlinkHref="#icon-cheboxnull"></use>
           </svg>
-          <svg className={"icon icon-defchebox" + " " + (this.props.todo.status === "" ? null : "hide")} aria-hidden="true">
+          <svg className={"icon icon-defchebox" + (this.props.todo.status === "" ? "" : " hide")} aria-hidden="true">
             <use xlinkHref="#icon-defchebox"></use>
           </svg>
         </div>
