@@ -4,15 +4,88 @@
   border-radius:4px;
   background:white;
   margin:2em;
-  padding:0 1em;
   min-height:20em;
-  min-width:32em;
+  min-width:30em;
   box-shadow:0 0 1em hsla(0,0%,0%,.15);
+  position: relative;
 }
 
-.App > .todoList > li:nth-child(odd){
-  background:#eee;
+.App > .todoList {
+  background-color: rgb(250,250,250);
 }
-.App > .todoList > li:nth-child(even){
-  background:transparent;
+.App > .bg{
+  background:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1510600010798&di=a25c1183987db6f38d2dcca9d94e232f&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Fa9d3fd1f4134970a74a942dc9fcad1c8a6865d6e.jpg);
+  background-size:cover;
+  padding-top:200px;
+  color:white;
+}
+.App > .bg h1{
+  margin:0;
+  position: absolute;
+  top:13%;
+  left:20px;
+}
+.App > .bg .todoy{
+  position: absolute;
+  top:21%;
+  left:20px;
+  font-size: 19px;
+  opacity: .8;
+}
+.App > .bg .todoy span{
+  font-size:26px;
+}
+.App > .bg .signOut button{
+  padding:.4em;
+  background:#4663F3;
+  border:1px solid #4663F3;
+  border-radius: 5px;
+  color:#fff;
+  font-weight: 600;
+  position: absolute;
+  top:6%;
+  right:8%;
+}
+.todoList{
+  padding-bottom:115px;
+}
+.inputWrapper{
+  position:absolute;
+  left: 0;
+  bottom:0;
+  width:100%;
+}
+.inputWrapper input{
+  line-height: 2.5;
+  padding-left:45px;
+  border:0;
+  border-top:1px solid #ccc;
+  color:#4663F3;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #4663F3;
+    opacity: .3;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #4663F3;
+   opacity: .3;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #4663F3;
+   opacity: .3;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #4663F3;
+   opacity: .3;
+}
+.inputWrapper .icon{
+  height:30px;
+  width:30px;
+  fill:#fff;
+  background-color: #4663F3;
+  border-radius: 16px;
+  border:2px solid #4663F3;
+  position:absolute;
+  left: 8px;
+  top:5px;
 }

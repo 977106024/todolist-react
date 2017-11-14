@@ -18,10 +18,10 @@
 }
 .UserDialog .signInOrSignUp > nav:first-child{
   padding:1em;
-  margin-left:-2em;
+  text-align: center;
 }
 .UserDialog .signInOrSignUp > nav:first-child label{
-  margin-left:2em;
+  margin-right:2em;
   cursor:pointer;
 }
 .UserDialog .signInOrSignUp > .panes{
@@ -35,7 +35,7 @@
 }
 .UserDialog form > .row{
   display:flex;
-  padding:.3em 0;
+  padding:5px 53px;
 }
 .UserDialog form > .row > label:first-child{
   width:4em;
@@ -50,5 +50,9 @@
 }
 .UserDialog button{
   font:inherit;
-  padding:.2em;
+  padding:.3em;
+  background:#4663F3;
+  border:1px solid #4663F3;
+  border-radius: 3px;
+  color:#fff;
 }

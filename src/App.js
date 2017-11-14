@@ -6,6 +6,7 @@ import TodoInput from './TodoInput'
 import TodoItem from './TodoItem'
 import UserDialog from './UserDialog'
 import {getCurrentUser,signOut,TodoModel} from './leanCloud'
+import {getDay} from './GetDay'
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
 
     this.state = {
       user: getCurrentUser() || {},
+      day:getDay(),
       newTodo: '',
       todoList: []
     }
@@ -39,17 +41,24 @@ class App extends Component {
     })
     return (
       <div className="App">
-        <h1>{this.state.user.username||'我'}的待办
-          {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
-        </h1>
-        <div className="inputWrapper">
-          <TodoInput contet={this.state.newTodo}
-          onSubmit={this.addTodo.bind(this)}
-          onChange={this.changeTitle.bind(this)}/>
+        <div className="bg">
+          <div className="signOut">
+            {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
+          </div>
+          <h1>{this.state.user.username||'我'}的待办</h1>
+          <div className="todoy">Today is <span>周{this.state.day}</span></div>
         </div>
         <ol className="todoList">
           {todos}
         </ol>
+        <div className="inputWrapper">
+          <svg className="icon icon-jiahao" aria-hidden="true">
+            <use xlinkHref="#icon-jiahao"></use>
+          </svg>
+          <TodoInput contet={this.state.newTodo}
+          onSubmit={this.addTodo.bind(this)}
+          onChange={this.changeTitle.bind(this)}/>
+        </div>
         {this.state.user.id ?
           null :
           <UserDialog

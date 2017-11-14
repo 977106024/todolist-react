@@ -1,9 +1,51 @@
 .TodoItem{
-  padding:.5em;
+  padding:1em;
   display:flex;
   align-items:center;
+  position:relative;
+  border-bottom:1px solid #ccc;
 }
 .TodoItem > .title{
   flex-grow:1;
-  padding:0 .5em;
+  padding:0 1.2em;
 }
+.TodoItem input{
+  opacity:0;
+  height: 18px;
+  width:31px;
+  z-index: 1;
+}
+.TodoItem .icon-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+.TodoItem .icon{
+  height:30px;
+  width:30px;
+  fill:#ccc;
+}
+.TodoItem .icon-cheboxnull{
+  border-radius: 16px;
+  fill:#fff;
+  background-color: rgb(109,176,0);
+}
+.TodoItem .icon-defchebox.hide{
+  display:none
+}
+.TodoItem .icon-cheboxnull.active{
+  display:block;
+}
+.TodoItem .icon-cheboxnull{
+  display:none;
+}
+.TodoItem button{
+  border:0;
+  background:transparent;
+  color:#4663F3;
+  width:50px;
+}
+/*.TodoItem:hover{
+  box-shadow:0 0 .6em #4663F3;;
+}*/
