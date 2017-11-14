@@ -43,7 +43,9 @@ class App extends Component {
       <div className="App">
         <div className="bg">
           <div className="signOut">
-            {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
+            {this.state.user.id ?
+              <button onClick={this.signOut.bind(this)}>登出</button>
+              : null}
           </div>
           <h1>{this.state.user.username||'我'}的待办</h1>
           <div className="todoy">Today is <span>周{this.state.day}</span></div>
