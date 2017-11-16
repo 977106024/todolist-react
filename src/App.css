@@ -63,6 +63,7 @@
   border-bottom-right-radius: 14px;
   border-bottom-left-radius:14px;
   color:#4663F3;
+  outline:none; /*取消焦点*/
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #4663F3;

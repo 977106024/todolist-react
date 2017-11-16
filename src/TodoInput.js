@@ -22,7 +22,9 @@ function submit(props,e){
   if(e.key === 'Enter'){
     if(e.target.value.trim() !== ''){
       props.onSubmit(e)
+
     }
+    e.target.value = ''
   }
 }
 function changeTitle(props,e){
@@ -32,6 +34,6 @@ function changeTitle(props,e){
 export default function (props){
   return <input className="TodoInput" type="text" placeholder="Add a to-do"
   value={props.content}
-  onKeyPress={submit.bind(this,props)}
+  onKeyUp={submit.bind(this,props)}
   onChange={changeTitle.bind(this,props)}/>
 }
