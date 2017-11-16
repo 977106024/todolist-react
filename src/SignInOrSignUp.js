@@ -10,7 +10,6 @@ export default class SignInOrSignUp extends Component{
       selected: 'signUp'
     }
   }
-
   switch (e){
     this.setState({
       selected: e.target.value

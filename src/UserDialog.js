@@ -25,7 +25,10 @@ export default class UserDialog extends Component{
     let error = (error)=>{
       switch(error.code){
         case 202:
-          alert('用户名已被占用')
+          alert('用户名已被注册')
+          break
+        case 203:
+          alert('邮箱已被注册')
           break
         default:
           alert(error)
@@ -53,6 +56,9 @@ export default class UserDialog extends Component{
       switch(error.code){
         case 210:
           alert('用户名与密码不匹配')
+          break
+        case 211:
+          alert('找不到该用户')
           break
         default:
         alert(error)

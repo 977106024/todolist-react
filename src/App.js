@@ -76,9 +76,12 @@ class App extends Component {
     this.setState(stateCopy)
   }
   onSignUpOrSignIn(user){
-    let stateCopy = JSON.parse(JSON.stringify(this.state))
-    stateCopy.user = user
-    this.setState(stateCopy)
+    TodoModel.getByUser(user,(todos)=>{
+      let stateCopy = JSON.parse(JSON.stringify(this.state))
+      stateCopy.todoList = todos
+      stateCopy.user = user
+      this.setState(stateCopy)
+    })
   }
   toggle(e,todo){
     let oldStatus = todo.status
